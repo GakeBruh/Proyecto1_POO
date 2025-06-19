@@ -32,10 +32,15 @@ def main():
         number="H18528",
         country="Honduras",
         expiration_date=date(2030, 1, 28),
-        person_id=p.id
+        person_id=p_id  
     )
     pass_id = passport.save(passports_coll)
+
+    p.passport_id = pass_id
+    p.update(persons_coll, p_id)
+
     print("Passport ID:", pass_id)
+
 
 if __name__ == "__main__":
     main()
