@@ -23,12 +23,12 @@ def get_collection(uri, db="passports_db", col="persons"):
 
 def main():
     persons_coll = get_collection(uri, db="passports_db", col="persons")
-    p = Person(3, "Oscar", "99549798", 50, date(1975, 3, 31))  
+    p = Person(5, "Kevin", "99549798", 50, date(2005, 1, 12))  
     p_id = p.save(persons_coll)
     print("Persona guardada con ID:", p_id)
 
     passports_coll = get_collection(uri, db="passports_db", col="passports")
-    passport = Passport("H18528","Honduras",date(2030, 1, 28),person_id=p_id)
+    passport = Passport("H18528","Honduras",date(2030, 5, 12),person_id=p_id)
     pass_id = passport.save(passports_coll)
 
     p.passport_id = pass_id
