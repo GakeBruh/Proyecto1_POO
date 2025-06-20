@@ -28,12 +28,7 @@ def main():
     print("Persona guardada con ID:", p_id)
 
     passports_coll = get_collection(uri, db="passports_db", col="passports")
-    passport = Passport(
-        number="H18528",
-        country="Honduras",
-        expiration_date=date(2030, 1, 28),
-        person_id=p_id  
-    )
+    passport = Passport("H18528","Honduras",date(2030, 1, 28),person_id=p_id)
     pass_id = passport.save(passports_coll)
 
     p.passport_id = pass_id

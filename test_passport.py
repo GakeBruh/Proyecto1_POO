@@ -20,17 +20,11 @@ class TestPersonPassport(unittest.TestCase):
         cls.test_ids = []
 
     def test_relacion(self):
-        # Paso 1: Crear persona y guardar
         persona = Person(id=101, name="Test User", phone="8888-1234", age=25, birthdate=date(2000, 1, 1))
         persona_id = persona.save(self.persons_coll)
         self.test_ids.append(ObjectId(persona_id))
 
-        pasaporte = Passport(
-            number="T123456",
-            country="Honduras",
-            expiration_date=date(2030, 1, 1),
-            person_id=persona_id
-        )
+        pasaporte = Passport("T123456","Honduras",date(2030, 1, 1),person_id=persona_id)
         passport_id = pasaporte.save(self.passports_coll)
         self.test_ids.append(ObjectId(passport_id))
 
